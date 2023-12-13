@@ -58,6 +58,7 @@ export const useTurntableState = ({
     };
 
     const handleKeyDown = (ev: KeyboardEvent) => {
+      setHasUserInteracted(true);
       if (ev.key === 'ArrowLeft') {
         decrementActiveIndex();
       } else if (ev.key === 'ArrowRight') {
@@ -66,6 +67,7 @@ export const useTurntableState = ({
     };
 
     const handlePointerMove = (ev: PointerEvent) => {
+      setHasUserInteracted(true);
       const distanceDragged = prevDragPosition - ev.clientX;
 
       if (distanceDragged <= -movementSensitivity) {
@@ -85,6 +87,7 @@ export const useTurntableState = ({
     };
 
     const handlePointerDown = (ev: PointerEvent) => {
+      setHasUserInteracted(true);
       if (ev.button == 2) {
         return;
       }
